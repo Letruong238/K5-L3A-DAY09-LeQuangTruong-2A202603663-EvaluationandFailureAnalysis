@@ -46,7 +46,7 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 - Lệnh: `python -m lab9.gate --pr reports/eval_<shape>.json --baseline reports/baseline_v1.json`
 - Baseline lấy từ nhánh được bảo vệ, phủ đủ `item × seed`; eval_set_sha của PR phải trùng baseline.
 - Kiểm chứng đã làm: `fixed` → exit 0; `seeded_regression` → exit 1 (blocked: refund_amount_correct, reply_matches_ledger, pass_rate; pass_rate Δ −0.271, CI [−0.500, −0.057]).
-- Gate exit 1 → **không merge**. Người xử lý: [điền tên/vai trò]. Ngoại lệ (waiver) cần: [điền người duyệt] duyệt, ghi lý do vào PR.
+- Gate exit 1 → **không merge**. Người xử lý: Lê Quang Trường (eval owner). Ngoại lệ (waiver) cần: Lê Quang Trường duyệt (dự án cá nhân, không có người duyệt thứ hai), ghi lý do vào PR.
 
 ## 6. Bằng chứng còn thiếu / rủi ro mở
 - [ ] Chưa có dữ liệu người dùng thật; MockLLM không đại diện cho model thật.
@@ -62,5 +62,5 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 ## Phê duyệt
 | Vai trò | Tên | Ngày |
 |---|---|---|
-| Product | | |
-| Eval owner (giữ gate) | | |
+| Product | Lê Quang Trường | 2026-11-17 |
+| Eval owner (giữ gate) | Lê Quang Trường | 2026-11-17 |
