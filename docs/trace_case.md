@@ -14,7 +14,7 @@ Lệnh in ra ba phần: các event trong trace (`reply`, `decision`, `model_over
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-002@11`, run ID `R-seeded_regression-C-002-s11`, trong report `E-seeded_regression-20261117-d0c8` |
+| Trial | `seeded_regression C-002@11`, run ID `R-seeded_regression-C-002-s11`, trong report `E-seeded_regression-20261117-15e0` |
 | Triệu chứng | Lab 8 grader FAIL: `status resolved != denied`. Ledger ghi hoàn 20.000đ (1 lần) trong khi nhãn là 0đ (từ chối). Reply nói "đã hoàn 20.000đ cho đơn O-202", khớp ledger nên một reply trôi chảy che mất việc hoàn sai. |
 | Bước sai đầu tiên | **Event 3, `model_override {"delay_days": 5}`**: agent ghi đè số ngày trễ bằng số trong ticket (5 ngày), trong khi DB ghi `delay_days = 2` cho đơn O-202. |
 | Vì sao là bước *đầu tiên* | Event 1 (`handoff`) và event 2 (`investigator`) đúng: agent tra được đơn O-202 và lấy đúng `delay_days: 2` từ DB. Sai lệch bắt đầu ở event 3. Event 4 (`quote` 20.000đ, clause `SHIP-LATE-03`), event 5 (`refund_history`) và event 6 (`reply`) chỉ là hệ quả của số ngày bị ghi đè. |

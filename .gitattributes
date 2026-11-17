@@ -1,0 +1,4 @@
+# Mã băm eval_set_sha tính từ byte của file: giữ LF trên mọi hệ điều hành (Windows và CI Linux ra cùng mã).
+src/data/eval/*.json text eol=lf
+src/data/eval/*.jsonl text eol=lf
+src/reports/*.json text eol=lf

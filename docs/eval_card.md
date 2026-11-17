@@ -2,8 +2,8 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
-- **Run ID / eval set SHA:** baseline `E-swarm-20261117-d0c8`; eval set `d0c8a856c79a`. PR so sánh phải dùng cùng SHA, nếu khác thì gate chặn ngay (`eval_set_sha`).
-- **Phiên bản:** code: commit `ad9c605` (M1–M4 trên overlay `0ef20d3`) · eval set v1 (sha `d0c8a856c79a`) · metric_spec_version 1.0 · grader `lab9/graders.py` · seeds 11/22/33/44/55
+- **Run ID / eval set SHA:** baseline `E-swarm-20261117-15e0`; eval set `15e045f9af94`. PR so sánh phải dùng cùng SHA, nếu khác thì gate chặn ngay (`eval_set_sha`).
+- **Phiên bản:** code: commit `ad9c605` (M1–M4 trên overlay `0ef20d3`) · eval set v1 (sha `15e045f9af94`) · metric_spec_version 1.0 · grader `lab9/graders.py` · seeds 11/22/33/44/55
 - **Eval set:** v1, 14 item × 5 seed, nguồn `lab8_public`; nhãn tách riêng ở `labels_v1.json`; mỗi item có `failure_modes` theo `docs/failure_taxonomy.md`.
 - **Metric & ngưỡng** (trích `config/metric_spec.yaml`):
 
@@ -16,7 +16,7 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 | db_fact_kept | ≥ 0.95 | không |
 | pass_5, cost_per_success | ≥ 0.80; tăng ≤ 10% | không |
 
-- **Kết quả baseline vs PR** (paired bootstrap 95%, 1000 lần lấy mẫu; baseline `swarm` = `E-swarm-20261117-d0c8`):
+- **Kết quả baseline vs PR** (paired bootstrap 95%, 1000 lần lấy mẫu; baseline `swarm` = `E-swarm-20261117-15e0`):
 
 | Metric | Baseline | `fixed` | `seeded_regression` |
 |---|---|---|---|
@@ -36,7 +36,7 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
 ## Mục v2 (M5–M7, Advanced/Expert)
 
-- **Eval set v2:** `eval_set_v2.jsonl` sha `8b66e05f1141`, 28 item (14 item v1 + 14 item adversarial của giảng viên) × 5 seed; baseline `reports/baseline_v2.json` sinh từ `swarm` bằng `config/metric_spec_v2.yaml`. Ánh xạ cơ chế tấn công sang FM nằm ở `config/fm_map.yaml`; mọi FM bị tấn công đều có ≥3 item (FM-03: 3, FM-04: 3, FM-06: 3, FM-08: 3, FM-09: 3, FM-02: 5, FM-05: 5, FM-07: 5).
+- **Eval set v2:** `eval_set_v2.jsonl` sha `eb53d9508436`, 28 item (14 item v1 + 14 item adversarial của giảng viên) × 5 seed; baseline `reports/baseline_v2.json` sinh từ `swarm` bằng `config/metric_spec_v2.yaml`. Ánh xạ cơ chế tấn công sang FM nằm ở `config/fm_map.yaml`; mọi FM bị tấn công đều có ≥3 item (FM-03: 3, FM-04: 3, FM-06: 3, FM-08: 3, FM-09: 3, FM-02: 5, FM-05: 5, FM-07: 5).
 - **Ngưỡng chọn từ A/A (M6):** chạy `swarm` trên hai bộ seed (`66,77,88,99,110`; `12,23,34,45,56`) so với seed của spec: Δ = 0.0000 ở mọi metric, vì MockLLM tất định, nên dải nhiễu bằng 0. Với LLM thật dải nhiễu lớn hơn 0 và sàn phải đặt ngoài dải đó; ở đây sàn được đặt giữa baseline `swarm` và bản lỗi gần nhất, kèm biên đủ rộng để bản trung thực (`honest_refactor`: toàn bộ metric = 1.0) không bị chặn. `pass_hat_5` sàn 0.85 (baseline 0.893; `flaky_regression` 0.571).
 - **Slice nào bắt lỗi nào** (pass_rate theo slice, trung bình theo item; baseline `swarm` → bản lỗi):
 

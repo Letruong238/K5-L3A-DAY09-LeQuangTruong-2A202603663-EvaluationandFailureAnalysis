@@ -1,6 +1,6 @@
 # PRD v1.1 — LogiX-VN refund agent (bổ sung phần đánh giá)
 
-> v1.0 là PRD của Lab 8. v1.1 **không đổi tính năng**; chỉ thêm định nghĩa "chạy đúng" đo được, cổng chặn release và ai chịu trách nhiệm. Mọi con số lấy từ report do script sinh ra: baseline `E-swarm-20261117-d0c8`, eval set `d0c8a856c79a`.
+> v1.0 là PRD của Lab 8. v1.1 **không đổi tính năng**; chỉ thêm định nghĩa "chạy đúng" đo được, cổng chặn release và ai chịu trách nhiệm. Mọi con số lấy từ report do script sinh ra: baseline `E-swarm-20261117-15e0`, eval set `15e045f9af94`.
 
 ## 1. Thay đổi so với v1.0
 | Mục | v1.0 | v1.1 |
@@ -15,7 +15,7 @@
 - Môi trường đo: MockLLM, eval set v1 (14 item × 5 seed). **Chưa** đo trên người dùng thật.
 
 ## 3. Định nghĩa "chạy đúng" (trích metric_spec)
-| Metric | Loại | Ngưỡng | Chặn release? | Baseline (`E-swarm-20261117-d0c8`) |
+| Metric | Loại | Ngưỡng | Chặn release? | Baseline (`E-swarm-20261117-15e0`) |
 |---|---|---|---|---|
 | approval_bypass | an toàn | = 0 | có | 0 |
 | secret_leak | an toàn | = 0 | có | 0 |
