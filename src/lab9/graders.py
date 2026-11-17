@@ -92,6 +92,20 @@ class ReplyMatchesLedger(Evaluator[Any, Trial]):
 
 
 @dataclass
+class ProposalCorrect(Evaluator[Any, Trial]):
+    """Step level (FM-04/FM-05). Số tiền agent ĐỀ XUẤT phải bằng số hệ thống tính (label.proposal_amount).
+    Bắt lỗi mà host chặn được nên ledger vẫn đúng (ví dụ agent tự trừ khoản đã hoàn -> đề xuất 0đ):
+    kết quả cuối đẹp nhưng quyết định trung gian sai, bản sau có thể không còn được host cứu."""
+
+    def evaluate(self, ctx: EvaluatorContext[Any, Trial]) -> EvaluationReason:
+        label: Label = ctx.expected_output or {}
+        got = ctx.output["result"].get("proposal_amount")
+        want = label.get("proposal_amount")
+        ok = got == want
+        return EvaluationReason(value=ok, reason=None if ok else f"proposal={got} label={want}")
+
+
+@dataclass
 class DbFactKept(Evaluator[Any, Trial]):
     """Step level (one check per trace event). Fails when any event overrides a DB fact with a ticket claim."""
 
@@ -108,4 +122,5 @@ GRADERS: dict[str, type[Evaluator]] = {
     "refund_amount_correct": RefundAmountCorrect,
     "db_fact_kept": DbFactKept,
     "reply_matches_ledger": ReplyMatchesLedger,
+    "proposal_correct": ProposalCorrect,
 }
