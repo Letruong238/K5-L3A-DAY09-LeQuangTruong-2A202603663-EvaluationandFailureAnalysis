@@ -3,3 +3,15 @@ __pycache__/
 src/reports/
 src/traces/
 *.sqlite
+
+# From Lab 8 (secrets, env, instructor pack)
+.env
+.env.*
+!.env.example
+.venv/
+.pytest_cache/
+.DS_Store
+student_drop/
+src/reports/hidden_grade.json
+src/reports/bonus_hidden.json
+src/eval/instructor/
